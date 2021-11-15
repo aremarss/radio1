@@ -1,59 +1,70 @@
 package ru.netology.domain;
 
 public class Radio {
+    private int minStation;
+    private int maxStation;
+    private int minVolume;
+    private int maxVolume;
     private int numberRadio;
     private int volumeRadio;
 
+    public Radio(int minStation, int maxStation, int minVolume, int maxVolume) {
+        this.minStation = minStation;
+        this.maxStation = maxStation;
+        this.minVolume = minVolume;
+        this.maxVolume = maxVolume;
+    }
+
     // Радиостанции
 
-    public void setNumberStation(int newNumberStation){
-        if (newNumberStation > 9){
-            newNumberStation = 9;
+    public void setNumberStation(int newNumberStation) {
+        if (newNumberStation > maxStation) {
+            newNumberStation = maxStation;
         }
-        if (newNumberStation < 0){
-            newNumberStation = 0;
+        if (newNumberStation < minStation) {
+            newNumberStation = minStation;
         }
         numberRadio = newNumberStation;
     }
 
-    public void setNextStation(){
-        if (numberRadio == 9){
-            numberRadio = 0;
-        }
-        else numberRadio += 1;
+    public void setNextStation() {
+        if (numberRadio == maxStation) {
+            numberRadio = minStation;
+        } else numberRadio += 1;
     }
 
     public void setPrevStation() {
-        if (numberRadio == 0){
-            numberRadio = 9;
+        if (numberRadio == minStation) {
+            numberRadio = maxStation;
+        } else {
+            numberRadio -= 1;
         }
-        else numberRadio -= 1;
     }
 
-    public int getNumberRadio(){
+    public int getNumberRadio() {
         return numberRadio;
     }
 
     // Громкость
 
-    public void setVolume(int newVolume){
-        if (newVolume > 10){
-            newVolume = 10;
+    public void setVolume(int newVolume) {
+        if (newVolume > maxVolume) {
+            newVolume = maxVolume;
         }
-        if (newVolume < 0){
-            newVolume = 0;
+        if (newVolume < minVolume) {
+            newVolume = minVolume;
         }
         volumeRadio = newVolume;
     }
 
-    public void setUpVolume(){
-        if (volumeRadio < 10){
+    public void setUpVolume() {
+        if (volumeRadio < maxVolume) {
             volumeRadio += 1;
         }
     }
 
-    public void setDownVolume(){
-        if (volumeRadio > 0){
+    public void setDownVolume() {
+        if (volumeRadio > minVolume) {
             volumeRadio -= 1;
         }
     }
