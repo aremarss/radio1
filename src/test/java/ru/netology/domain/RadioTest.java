@@ -1,12 +1,11 @@
 package ru.netology.domain;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RadioTest {
 
-    Radio boxRadio = new Radio(0, 14, 0, 100); // 15 станций и 101 уровень громкости.
+    Radio boxRadio = new Radio(0, 14, 0, 100, 0, 0); // 15 станций и 101 уровень громкости.
 
     @Test
     public void setStationUnderLimit() {
