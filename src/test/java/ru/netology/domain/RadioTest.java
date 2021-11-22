@@ -6,20 +6,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RadioTest {
 
-    Radio boxRadio = new Radio(0, 14, 0, 100); // 15 станций и 101 уровень громкости.
+    Radio boxRadio = new Radio(5); // Всего 5 станций.
 
     @Test
     public void setStationUnderLimit() {
 
-        boxRadio.setNumberStation(14);
-        assertEquals(14, boxRadio.getNumberRadio());
+        boxRadio.setNumberStation(4);
+        assertEquals(4, boxRadio.getNumberRadio());
     }
 
     @Test
     public void setStationOverLimit() {
 
-        boxRadio.setNumberStation(15);
-        assertEquals(14, boxRadio.getNumberRadio());
+        boxRadio.setNumberStation(5);
+        assertEquals(4, boxRadio.getNumberRadio());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class RadioTest {
     @Test
     public void setNextStation() {
 
-        boxRadio.setNumberStation(14);
+        boxRadio.setNumberStation(4);
         boxRadio.setNextStation();
         assertEquals(0, boxRadio.getNumberRadio());
     }
@@ -63,7 +63,7 @@ public class RadioTest {
     public void setPrev2Station() {
 
         boxRadio.setPrevStation();
-        assertEquals(14, boxRadio.getNumberRadio());
+        assertEquals(4, boxRadio.getNumberRadio());
     }
 
     @Test
