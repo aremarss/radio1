@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RadioTest {
 
-    Radio boxRadio = new Radio(5); // Всего 5 станций
+    Radio boxRadio = new Radio(5); // Всего 5 станций (от 0 до 4).
 
     @Test
     public void setStationUnderLimit() {
